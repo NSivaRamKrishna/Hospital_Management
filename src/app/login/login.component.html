@@ -1,0 +1,40 @@
+<br><br><br><br>
+  <div class="grid classCenter">
+    <form  [formGroup]="form" >
+           <p-card header="LOGIN FORM" [style]="{ width: '360px','background-color':'#A1C2F1'}"><br>
+             <div class="grid">
+               <div class="col-12">
+                <label for="Email" >Email ID</label><br>
+                <input type="text" placeholder=" Email ID" formControlName="email" pInputText [style]="{width:'300px'}"/><br><br>
+                <div *ngIf="form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched)">
+                  <div *ngIf="form.controls.email.errors.required" style="color: red;">Email is required.</div>
+                  <div *ngIf="form.controls.email.errors.email">Invalid email format.</div>
+                </div>
+                <br>
+                 </div>
+                <div class="col-12">
+                <label for="Password" >Password</label><br>
+                <input type="password" placeholder="Password" formControlName="password" pInputText [style]="{width:'300px'}" /><br><br>
+                <div *ngIf="form.controls.password.invalid && (form.controls.password.dirty || form.controls.password.touched)">
+                  <div *ngIf="form.controls.password.errors.required" style="color: red;">Password is required.</div>
+                  <div *ngIf="form.controls.password.errors.password">Invalid Password</div>
+                </div>
+                <div><label for="role" >Login As:&nbsp;&nbsp;&nbsp;</label>
+                  <p-dropdown formControlName="role" [options]="roles" placeholder="Role"></p-dropdown></div>
+                </div><br>
+                <div>{{errorMessage}}</div>
+                <p-button label="Login" (click)="Submit()" [style]="{width:'300px'}" [disabled]="form.invalid"></p-button>
+                </div>
+                <br>
+  <div class="grid3">
+         <div class="col-5">
+           Not a member?<a id="r" href="/main/signup"> Register </a>
+         </div>
+         <br>
+            <div class="col-6">
+              <a id="fp" routerLink="/main/forgotPassword">Forgot password?</a>
+          </div>
+</div>
+  </p-card>
+</form>
+</div>

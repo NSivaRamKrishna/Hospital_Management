@@ -1,0 +1,90 @@
+<div style="margin-left: 60%;margin-top: -33%;width: 500px;border-radius: 50px;">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div style="display:flex;">
+      <div class="p-field">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" pInputText formControlName="firstName" required pattern="[A-Za-z ]*">
+        <small class="p-error" *ngIf="myForm.get('firstName').invalid && myForm.get('firstName').touched" style="font-size: 0.9rem;">
+          <ng-container *ngIf="myForm.get('firstName').hasError('required')">First Name is required.</ng-container>
+          <ng-container *ngIf="myForm.get('firstName').hasError('pattern')">Only alphabets are allowed.</ng-container>
+        </small>
+      </div>&nbsp;
+      <div class="p-field">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" pInputText formControlName="lastName" required pattern="[A-Za-z ]*">
+        <small class="p-error" *ngIf="myForm.get('lastName').invalid && myForm.get('lastName').touched" style="font-size: 0.9rem;">
+          <ng-container *ngIf="myForm.get('lastName').hasError('required')">Last Name is required.</ng-container>
+          <ng-container *ngIf="myForm.get('lastName').hasError('pattern')">Only alphabets are allowed.</ng-container>
+        </small>
+      </div>
+    </div>
+  <div style="display: flex;">
+    <div class="p-field">
+      <label for="email">Email:</label>
+      <input type="email" id="email" pInputText formControlName="email" required pattern="[a-zA-Z0-9._%+-]+@[A-Za-z]{5}\.com$" style="width: 350px;">
+      <small class="p-error" *ngIf="myForm.get('email').invalid && myForm.get('email').touched" style="font-size: 0.9rem; color: red;">
+        <ng-container *ngIf="myForm.get('email').hasError('required')">Email ID is required.</ng-container>
+        <ng-container *ngIf="myForm.get('email').hasError('pattern')">Please enter a valid Gmail address (e.g., example@email.com).</ng-container>
+      </small>
+    </div>&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="p-field">
+      <label for="age">Age:</label>
+      <input type="text" id="age" pInputText formControlName="age" required min="1" max="150">
+      <small class="p-error" *ngIf="myForm.get('age').invalid && myForm.get('age').touched" style="font-size: 0.9rem;">
+        <ng-container *ngIf="myForm.get('age').hasError('required')">Age is required.</ng-container>
+        <ng-container *ngIf="myForm.get('age').hasError('min') || myForm.get('age').hasError('max')">Invalid age value.</ng-container>
+      </small>
+    </div>
+  </div>
+    
+    <div style="display: flex;">
+      <div class="p-field">
+        <label for="pPhoneNo">Phone Number:</label>
+        <input type="text" id="pPhoneNo" pInputText formControlName="pPhoneNo" required pattern="[0-9]{10}">
+        <small class="p-error" *ngIf="myForm.get('pPhoneNo').invalid && myForm.get('pPhoneNo').touched" style="font-size: 0.9rem;">
+          <ng-container *ngIf="myForm.get('pPhoneNo').hasError('required')">Phone Number is required.</ng-container>
+          <ng-container *ngIf="myForm.get('pPhoneNo').hasError('pattern')">Phone Number should have 10 digits.</ng-container>
+        </small>
+      </div>&nbsp;&nbsp;
+      <div class="p-field">
+        <label for="area">Location:</label>
+        <input type="text" id="area" pInputText formControlName="area" required>
+        <small class="p-error" *ngIf="myForm.get('area').invalid && myForm.get('area').touched" style="font-size: 0.9rem;">
+          <ng-container *ngIf="myForm.get('area').hasError('required')">Area is required.</ng-container>
+        </small>
+      </div>
+    </div>
+
+    <div style="display: flex;">
+     
+     <div class="p-field">
+      <label for="pPassword"> Password:</label>
+      <input type="pPassword" id="pPassword" pInputText formControlName="pPassword" required pattern="[a-zA-Z0-9._%+!@#$&*-]{8,20}" required>
+      <small class="p-error" *ngIf="myForm.get('pPassword').invalid && myForm.get('pPassword').touched" style="font-size: 0.9rem;">
+        <ng-container *ngIf="myForm.get('pPassword').hasError('required')">Password is required.</ng-container>
+        <ng-container *ngIf="myForm.get('pPassword').hasError('pattern')">Invalid password format.</ng-container>
+      </small>
+    </div>&nbsp;&nbsp;&nbsp;
+      <div class="p-field">
+        <label for="password"> Confirm Password:</label>
+        <input type="password" id="password" pInputText  required pattern="[a-zA-Z0-9._%+!@#$&*-]{8,20}" required>
+        
+      </div>
+    </div>
+
+    <div style="display: flex;">
+      <div>
+        <label for="role">Register As:&nbsp;&nbsp;&nbsp;</label>
+        <p-dropdown formControlName="role" [options]="roles" placeholder="Role"></p-dropdown>
+      </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="card flex justify-content-center">
+        <div>
+          <label for="gender">Gender:&nbsp;&nbsp;&nbsp;</label>
+          <p-dropdown formControlName="gender" [options]="selectedGender" placeholder="gender"></p-dropdown>
+        </div>
+      </div>
+    </div> 
+    <br>
+    <p-button type="submit" pButton [disabled]="myForm.invalid" style="margin-left: 180px; ;">Register</p-button>
+  </form>
+</div>

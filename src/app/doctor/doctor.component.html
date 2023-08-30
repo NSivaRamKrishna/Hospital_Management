@@ -1,0 +1,47 @@
+
+<br><br><br>
+<div style="margin-left: 25%;">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" style="margin-top: -37%;">
+    <div class="p-field">
+      <label for="slNo">S.no:</label>
+      <input type="text" id="slNo" pInputText formControlName="slNo">
+      <small class="p-error" *ngIf="myForm.get('slNo').invalid && myForm.get('slNo').touched" style="font-size: 0.9rem;">slNo is required.</small>
+    </div>
+  
+    <div class="p-field">
+      <label for="name">Name:</label>
+      <input type="text" id="name" pInputText formControlName="name">
+      <small class="p-error" *ngIf="myForm.get('name').invalid && myForm.get('name').touched" style="font-size: 0.9rem;">Name is required.</small>
+    </div>
+  
+    <div class="p-field">
+      <label for="specialization">Specialization:</label>
+      <input type="text" id="specialization" pInputText formControlName="specialization">
+      <small class="p-error" *ngIf="myForm.get('specialization').invalid && myForm.get('specialization').touched" style="font-size: 0.9rem;">Specialization is required.</small>
+    </div>
+  
+    <div class="p-field">
+      <label for="city">Area:</label>
+      <div class="card justify-content-center">
+        <p-dropdown formControlName="area" [options]="cities" placeholder="city"></p-dropdown></div>
+      </div>
+   
+  <div style="display: flex;">
+    <div class="p-field">
+      <label for="slot">Time:</label>
+      <input type="text" id="slot" pInputText formControlName="slot">
+      <small class="p-error" *ngIf="myForm.get('slot').invalid && myForm.get('slot').touched" style="font-size: 0.9rem;">Time is required.</small>
+    </div>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <div class="p-field">
+      <label for="date">Date:</label>
+        <div class="card flex justify-content-center" style="height: 3px;">
+        <p-calendar formControlName="date" dateFormat="dd/mm/yy" [showIcon]="true" [minDate]="minDate"></p-calendar>
+      </div>
+    </div>
+  </div> 
+  <br>
+    <button type="submit" pButton [disabled]="myForm.invalid" style="margin-left:39% ;">Submit</button>
+  </form>
+</div>
+  

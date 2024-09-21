@@ -1,0 +1,16 @@
+<br><br>
+
+<div class="custom-menubar">
+    <p-menubar [model]="items" [style]="{'background-color':'#A1C2F1','color':'black'}">
+        <ng-template pTemplate="start">
+            <img src="./assets/images/plus.svg" height="50" class="mr-2" />&nbsp;&nbsp;&nbsp;&nbsp;
+        </ng-template>
+        <ng-template pTemplate="end" ><div style="display: flex;">
+            <p-menubar [model]="items2" [style]="{'background-color':'#A1C2F1','color':'black'}"></p-menubar>
+            &nbsp;&nbsp;<p-menubar [model]="items3" [style]="{'background-color':'#A1C2F1','color':'black'}"></p-menubar>
+            </div><!-- <form  >
+                <p-dropdown [options]="cities"  placeholder="Select a City" optionLabel="name" ></p-dropdown>
+            </form> -->
+        </ng-template>
+    </p-menubar>
+</div>

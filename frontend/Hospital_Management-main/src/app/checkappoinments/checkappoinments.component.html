@@ -1,0 +1,23 @@
+<div style="position: absolute; margin-top: -30%; margin-left: 7.5%; width: 65%; height: 370px; overflow: auto;border-radius: 10px;">
+    <p-table [value]="products">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Appointment ID</th>
+          <th>Patient Name</th>
+          <th>Doctor Name</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product>
+        <tr>
+          <td>{{ product.appointmentId }}</td>
+          <td>{{ product.patientName }}</td>
+          <td>{{ product.doctorName }}</td>
+          <td>{{ product.date }}</td>
+          <td>{{ product.slot }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  

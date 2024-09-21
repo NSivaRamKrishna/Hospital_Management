@@ -1,0 +1,33 @@
+
+.classCenter{
+    align-items: center;
+    box-sizing: border-box;
+    padding: 2px;
+    /* width: 250px; */
+    height: 100px;
+    margin-left: 800px;
+    margin-top: -39%
+}
+.button{
+    width:200px;
+}
+
+.grid3{
+    display: flex;
+}
+.col-6{
+    font-size: 12px;
+    margin-left:20% ;
+}
+.col-5{
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+}
+#r{
+    text-decoration: none;
+}
+#fp{
+    text-decoration: none;
+
+}
